@@ -6,7 +6,7 @@ const RedSquare: React.FC = () => (
         <Text style={styles.text}>Hello</Text>
     </View>
 );
-
+ 
 const styles = StyleSheet.create({
     square: {
         width: 100,
