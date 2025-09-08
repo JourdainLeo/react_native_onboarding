@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const RedSquare: React.FC = () => (
+const RedSquare = () => (
     <View style={styles.square}>
-        <Text style={styles.text}>Hello</Text>
+        <Text style={styles.text}>hello</Text>
     </View>
 );
- 
+
 const styles = StyleSheet.create({
     square: {
         width: 100,
