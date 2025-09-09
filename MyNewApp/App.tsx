@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { Image } from "react-native";
 import CardList from "./components/CardList";
 import { StoreProvider } from "./services/store";
 import { NavigationContainer } from "@react-navigation/native";
@@ -20,12 +20,36 @@ export default function App() {
           <Stack.Screen
             name="CardList"
             component={CardList}
-            options={{ title: "Yu-Gi-Oh Database" }}
+            options={{
+              headerTitle: () => (
+                <Image
+                  source={require("./assets/logo.jpg")} // ton image locale
+                  style={{
+                    width: "100%",
+                    height: 40,
+                    resizeMode: "contain",
+                    marginBottom: 20,
+                  }}
+                />
+              ),
+            }}
           />
           <Stack.Screen
             name="CardDetails"
             component={CardDetails}
-            options={{ title: "Yu-Gi-Oh Database" }}
+            options={{
+              headerTitle: () => (
+                <Image
+                  source={require("./assets/logo.jpg")} // ton image locale
+                  style={{
+                    width: "100%",
+                    height: 40,
+                    resizeMode: "contain",
+                    marginBottom: 20,
+                  }}
+                />
+              ),
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

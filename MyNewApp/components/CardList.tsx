@@ -14,6 +14,7 @@ import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
 import { useStore } from "../services/store";
 import PaginationControls from "./PaginationControls";
+import { globalStyle } from "../styles";
 
 type CardProps = {
   name: string;
@@ -51,7 +52,7 @@ const CardList: React.FC = () => {
   return (
     <View style={styles.container}>
       <TextInput
-        style={styles.input}
+        style={[styles.input, globalStyle.shadow]}
         placeholder="Search a card..."
         value={search}
         onChangeText={setSearch}

@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { RootStackParamList } from "../App";
+import { globalStyle } from "../styles";
 
 type CardDetailsRouteProp = RouteProp<RootStackParamList, "CardDetails">;
 
@@ -11,7 +12,7 @@ const CardDetails: React.FC = () => {
 
   return (
     <View>
-      <View style={styles.container}>
+      <View style={[styles.container, globalStyle.shadow]}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.desc}>{desc}</Text>
       </View>

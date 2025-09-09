@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useStore } from "../services/store";
+import { globalStyle } from "../styles";
 
 const PaginationControls: React.FC = () => {
   const { page, total, setPage, loading } = useStore();
@@ -38,7 +39,7 @@ const PaginationControls: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, globalStyle.shadow]}>
       <TouchableOpacity
         onPress={() => goToPage(page - 1)}
         style={[styles.pageNumber, styles.arrow, page === 0 && styles.disabled]}
@@ -92,10 +93,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 8,
     borderRadius: 16,
-    elevation: 2,
   },
   arrow: {
-    backgroundColor: "#8B0000",
+    backgroundColor: "#ed2124",
   },
   arrowText: {
     color: "#fff",
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
   },
   activePage: {
-    backgroundColor: "#8B0000",
+    backgroundColor: "#ed2124",
   },
   pageText: {
     fontWeight: "600",
