@@ -2,17 +2,19 @@ import React, {
   createContext,
   useContext,
   useState,
-  useEffect,
   ReactNode,
+  useCallback,
+  useMemo,
 } from "react";
-
 import { CardProps } from "../model/card";
+import { useCards } from "./cards";
 
 type AppState = {
   cards: CardProps[];
   page: number;
   total: number;
   loading: boolean;
+  error: string | null;
   search: string;
   setSearch: (s: string) => void;
   setPage: (p: number) => void;
@@ -23,63 +25,38 @@ type AppState = {
 const StoreContext = createContext<AppState | undefined>(undefined);
 
 export const StoreProvider = ({ children }: { children: ReactNode }) => {
-  const [cards, setCards] = useState<CardProps[]>([]);
   const [page, setPage] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
-
   const pageSize = 50;
 
-  useEffect(() => {
-    const fetchCards = async () => {
-      setLoading(true);
-      try {
-        const query = search ? `&fname=${encodeURIComponent(search)}` : "";
-        const res = await fetch(
-          `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=${pageSize}&offset=${
-            page * pageSize
-          }${query}`
-        );
-        const json = await res.json();
-        setCards(json.data || []);
-        setTotal(json.meta?.total_rows ?? json.data?.length ?? 0);
-      } catch (err) {
-        console.error("Erreur de chargement :", err);
-        setCards([]);
-        setTotal(0);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const { cards, total, loading, error } = useCards({ page, pageSize, search });
 
-    fetchCards();
-  }, [page, search]);
-
-  const nextPage = () => {
+  const nextPage = useCallback(() => {
     if ((page + 1) * pageSize < total) setPage((prev) => prev + 1);
-  };
+  }, [page, total]);
 
-  const prevPage = () => {
+  const prevPage = useCallback(() => {
     if (page > 0) setPage((prev) => prev - 1);
-  };
+  }, [page]);
+
+  const value = useMemo(
+    () => ({
+      cards,
+      page,
+      total,
+      loading,
+      error,
+      search,
+      setSearch,
+      setPage,
+      nextPage,
+      prevPage,
+    }),
+    [cards, page, total, loading, error, search, nextPage, prevPage]
+  );
 
   return (
-    <StoreContext.Provider
-      value={{
-        cards,
-        page,
-        total,
-        loading,
-        search,
-        setSearch,
-        setPage,
-        nextPage,
-        prevPage,
-      }}
-    >
-      {children}
-    </StoreContext.Provider>
+    <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
   );
 };
 
