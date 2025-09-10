@@ -1,0 +1,206 @@
+{
+  "data": [
+    {
+      "id": 80181649,
+      "name": "\"A Case for K9\"",
+      "type": "Spell Card",
+      "humanReadableCardType": "Continuous Spell",
+      "frameType": "spell",
+      "desc": "When this card is activated: You can add 1 \"K9\" monster from your Deck to your hand. \"K9\" monsters you control gain 900 ATK during any turn in which your opponent has activated a monster effect in the hand or GY. If this card in the Spell & Trap Zone is destroyed by card effect: You can Set 1 \"K9\" Quick-Play Spell from your Deck or GY. You can only use this effect of \"\"A Case for K9\"\" once per turn. You can only activate 1 \"\"A Case for K9\"\" per turn.",
+      "race": "Continuous",
+      "archetype": "K9",
+      "ygoprodeck_url": "https://ygoprodeck.com/card/a-case-for-k9-14990",
+      "card_sets": [
+        {
+          "set_name": "Justice Hunters",
+          "set_code": "JUSH-EN040",
+          "set_rarity": "Starlight Rare",
+          "set_rarity_code": "(StR)",
+          "set_price": "0"
+        },
+        {
+          "set_name": "Justice Hunters",
+          "set_code": "JUSH-EN040",
+          "set_rarity": "Super Rare",
+          "set_rarity_code": "(SR)",
+          "set_price": "0"
+        }
+      ],
+      "card_images": [
+        {
+          "id": 80181649,
+          "image_url": "https://images.ygoprodeck.com/images/cards/80181649.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/80181649.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/80181649.jpg"
+        }
+      ],
+      "card_prices": [
+        {
+          "cardmarket_price": "0.27",
+          "tcgplayer_price": "0.15",
+          "ebay_price": "0.00",
+          "amazon_price": "0.00",
+          "coolstuffinc_price": "0.00"
+        }
+      ]
+    },
+    {
+      "id": 34541863,
+      "name": "\"A\" Cell Breeding Device",
+      "type": "Spell Card",
+      "humanReadableCardType": "Continuous Spell",
+      "frameType": "spell",
+      "desc": "During each of your Standby Phases, put 1 A-Counter on 1 face-up monster your opponent controls.",
+      "race": "Continuous",
+      "archetype": "Alien",
+      "ygoprodeck_url": "https://ygoprodeck.com/card/a-cell-breeding-device-9766",
+      "card_sets": [
+        {
+          "set_name": "Force of the Breaker",
+          "set_code": "FOTB-EN043",
+          "set_rarity": "Common",
+          "set_rarity_code": "(C)",
+          "set_price": "0"
+        }
+      ],
+      "card_images": [
+        {
+          "id": 34541863,
+          "image_url": "https://images.ygoprodeck.com/images/cards/34541863.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/34541863.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/34541863.jpg"
+        }
+      ],
+      "card_prices": [
+        {
+          "cardmarket_price": "0.05",
+          "tcgplayer_price": "0.12",
+          "ebay_price": "0.99",
+          "amazon_price": "24.45",
+          "coolstuffinc_price": "0.25"
+        }
+      ]
+    },
+    {
+      "id": 64163367,
+      "name": "\"A\" Cell Incubator",
+      "type": "Spell Card",
+      "humanReadableCardType": "Continuous Spell",
+      "frameType": "spell",
+      "desc": "Each time an A-Counter(s) is removed from play by a card effect, place 1 A-Counter on this card. When this card is destroyed, distribute the A-Counters on this card among face-up monsters.",
+      "race": "Continuous",
+      "archetype": "Alien",
+      "ygoprodeck_url": "https://ygoprodeck.com/card/a-cell-incubator-8856",
+      "card_sets": [
+        {
+          "set_name": "Gladiator's Assault",
+          "set_code": "GLAS-EN062",
+          "set_rarity": "Common",
+          "set_rarity_code": "(C)",
+          "set_price": "0"
+        }
+      ],
+      "card_images": [
+        {
+          "id": 64163367,
+          "image_url": "https://images.ygoprodeck.com/images/cards/64163367.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/64163367.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/64163367.jpg"
+        }
+      ],
+      "card_prices": [
+        {
+          "cardmarket_price": "0.10",
+          "tcgplayer_price": "0.23",
+          "ebay_price": "1.25",
+          "amazon_price": "0.50",
+          "coolstuffinc_price": "0.25"
+        }
+      ]
+    },
+    {
+      "id": 91231901,
+      "name": "\"A\" Cell Recombination Device",
+      "type": "Spell Card",
+      "humanReadableCardType": "Quick-Play Spell",
+      "frameType": "spell",
+      "desc": "Target 1 face-up monster on the field; send 1 \"Alien\" monster from your Deck to the Graveyard, and if you do, place A-Counters on that monster equal to the Level of the sent monster. During your Main Phase, except the turn this card was sent to the Graveyard: You can banish this card from your Graveyard; add 1 \"Alien\" monster from your Deck to your hand.",
+      "race": "Quick-Play",
+      "archetype": "Alien",
+      "ygoprodeck_url": "https://ygoprodeck.com/card/a-cell-recombination-device-7614",
+      "card_sets": [
+        {
+          "set_name": "Invasion: Vengeance",
+          "set_code": "INOV-EN063",
+          "set_rarity": "Common",
+          "set_rarity_code": "(C)",
+          "set_price": "0"
+        }
+      ],
+      "card_images": [
+        {
+          "id": 91231901,
+          "image_url": "https://images.ygoprodeck.com/images/cards/91231901.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/91231901.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/91231901.jpg"
+        }
+      ],
+      "card_prices": [
+        {
+          "cardmarket_price": "0.09",
+          "tcgplayer_price": "0.22",
+          "ebay_price": "0.99",
+          "amazon_price": "0.50",
+          "coolstuffinc_price": "0.49"
+        }
+      ]
+    },
+    {
+      "id": 73262676,
+      "name": "\"A\" Cell Scatter Burst",
+      "type": "Spell Card",
+      "humanReadableCardType": "Quick-Play Spell",
+      "frameType": "spell",
+      "desc": "Select 1 face-up \"Alien\" monster you control. Destroy it and distribute new A-Counters equal to its Level among your opponent's face-up monsters.",
+      "race": "Quick-Play",
+      "archetype": "Alien",
+      "ygoprodeck_url": "https://ygoprodeck.com/card/a-cell-scatter-burst-9737",
+      "card_sets": [
+        {
+          "set_name": "Strike of Neos",
+          "set_code": "STON-EN041",
+          "set_rarity": "Common",
+          "set_rarity_code": "(C)",
+          "set_price": "0"
+        }
+      ],
+      "card_images": [
+        {
+          "id": 73262676,
+          "image_url": "https://images.ygoprodeck.com/images/cards/73262676.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/73262676.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/73262676.jpg"
+        }
+      ],
+      "card_prices": [
+        {
+          "cardmarket_price": "0.11",
+          "tcgplayer_price": "0.19",
+          "ebay_price": "2.00",
+          "amazon_price": "9.76",
+          "coolstuffinc_price": "0.25"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "generated": "2025-09-08T14:59:07+00:00",
+    "current_rows": 5,
+    "total_rows": 13876,
+    "rows_remaining": 13871,
+    "total_pages": 2775,
+    "pages_remaining": 2775,
+    "next_page": "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=5&offset=5",
+    "next_page_offset": 5
+  }
+}
