@@ -12,3 +12,5 @@ export const globalStyle = StyleSheet.create({
     elevation: 1,
   },
 });
+
+export const primary = "#ed2124";

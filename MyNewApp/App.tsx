@@ -1,22 +1,29 @@
 import { Image } from "react-native";
-import CardList from "./components/CardList";
-import { StoreProvider } from "./services/store";
+import { CardList } from "./components/CardList";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CardDetails from "./components/CardDetails";
+import { CardDetails } from "./components/CardDetails";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { CardType } from "./schemas/cards";
+import { primary } from "./styles";
 
 export type RootStackParamList = {
   CardList: undefined;
-  CardDetails: { name: string; desc: string; card_images: any[] };
+  CardDetails: CardType;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+const queryClient = new QueryClient();
+
 export default function App() {
   return (
-    <StoreProvider>
+    <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="CardList">
+        <Stack.Navigator
+          initialRouteName="CardList"
+          screenOptions={{ headerTintColor: primary }}
+        >
           <Stack.Screen
             name="CardList"
             component={CardList}
@@ -53,6 +60,6 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-    </StoreProvider>
+    </QueryClientProvider>
   );
 }
