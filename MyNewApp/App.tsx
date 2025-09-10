@@ -23,7 +23,7 @@ export default function App() {
             options={{
               headerTitle: () => (
                 <Image
-                  source={require("./assets/logo.jpg")} // ton image locale
+                  source={require("./assets/logo.jpg")}
                   style={{
                     width: "100%",
                     height: 40,
@@ -40,7 +40,7 @@ export default function App() {
             options={{
               headerTitle: () => (
                 <Image
-                  source={require("./assets/logo.jpg")} // ton image locale
+                  source={require("./assets/logo.jpg")}
                   style={{
                     width: "100%",
                     height: 40,

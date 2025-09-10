@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useStore } from "../services/store";
 import { globalStyle } from "../styles";
 
-const PaginationControls: React.FC = () => {
+const PaginationControls = () => {
   const { page, total, setPage, loading } = useStore();
   const pageSize = 50;
   const totalPages = Math.ceil(total / pageSize) || 1;
@@ -12,9 +12,7 @@ const PaginationControls: React.FC = () => {
     if (!loading && p >= 0 && p < totalPages) setPage(p);
   };
 
-  const isDisabled = () => {
-    return page === totalPages - 1 || loading;
-  };
+  const isDisabled = page === totalPages - 1 || loading;
 
   const visiblePages = () => {
     const pages = [];
@@ -75,7 +73,7 @@ const PaginationControls: React.FC = () => {
           styles.arrow,
           page === totalPages - 1 && styles.disabled,
         ]}
-        disabled={isDisabled()}
+        disabled={isDisabled}
       >
         <Text style={styles.arrowText}>{"Next"}</Text>
       </TouchableOpacity>

@@ -39,21 +39,18 @@ export const StoreProvider = ({ children }: { children: ReactNode }) => {
     if (page > 0) setPage((prev) => prev - 1);
   }, [page]);
 
-  const value = useMemo(
-    () => ({
-      cards,
-      page,
-      total,
-      loading,
-      error,
-      search,
-      setSearch,
-      setPage,
-      nextPage,
-      prevPage,
-    }),
-    [cards, page, total, loading, error, search, nextPage, prevPage]
-  );
+  const value = {
+    cards,
+    page,
+    total,
+    loading,
+    error,
+    search,
+    setSearch,
+    setPage,
+    nextPage,
+    prevPage,
+  };
 
   return (
     <StoreContext.Provider value={value}>{children}</StoreContext.Provider>

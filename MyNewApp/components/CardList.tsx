@@ -26,7 +26,7 @@ type CardProps = {
   }[];
 };
 
-const Card: React.FC<CardProps> = ({ name, desc, card_images }) => {
+const Card = ({ name, desc, card_images }: CardProps) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -38,7 +38,7 @@ const Card: React.FC<CardProps> = ({ name, desc, card_images }) => {
       }
     >
       <Image
-        source={{ uri: card_images[0]?.image_url }}
+        source={{ uri: card_images[0].image_url }}
         style={styles.image}
         resizeMode="contain"
       />
@@ -46,7 +46,7 @@ const Card: React.FC<CardProps> = ({ name, desc, card_images }) => {
   );
 };
 
-const CardList: React.FC = () => {
+const CardList = () => {
   const { cards, loading, search, setSearch } = useStore();
 
   return (
@@ -66,9 +66,7 @@ const CardList: React.FC = () => {
       ) : (
         <FlatList
           data={cards}
-          keyExtractor={(item, index) =>
-            item.id?.toString() || index.toString()
-          }
+          keyExtractor={(item, index) => item.id.toString() || index.toString()}
           numColumns={3}
           renderItem={({ item }) => <Card {...item} />}
         />

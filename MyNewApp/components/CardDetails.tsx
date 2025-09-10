@@ -17,7 +17,7 @@ const CardDetails: React.FC = () => {
         <Text style={styles.desc}>{desc}</Text>
       </View>
       <Image
-        source={{ uri: card_images[0]?.image_url }}
+        source={{ uri: card_images[0].image_url }}
         style={styles.image}
         resizeMode="contain"
       />
