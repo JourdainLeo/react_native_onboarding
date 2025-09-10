@@ -1,9 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import {
-  fetchCardsConnector,
-  FetchCardsParams,
-} from "../connectors/cardsConnector";
-import { CardType } from "../schemas/cards";
+import { fetchCardsConnector } from "../connectors/cardsConnector";
+import { CardType, FetchCardsParams } from "../schemas/cards";
 
 export const useCards = (params: FetchCardsParams) => {
   const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery({

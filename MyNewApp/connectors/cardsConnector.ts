@@ -1,11 +1,9 @@
 import axios from "axios";
-import { CardType, cardsResponseSchema } from "../schemas/cards";
-
-export type FetchCardsParams = {
-  page: number;
-  pageSize: number;
-  search: string;
-};
+import {
+  CardType,
+  cardsResponseSchema,
+  FetchCardsParams,
+} from "../schemas/cards";
 
 export const fetchCardsConnector = async ({
   page,

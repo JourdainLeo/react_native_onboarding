@@ -23,4 +23,10 @@ export const cardsResponseSchema = z.object({
     .optional(),
 });
 
+export type FetchCardsParams = {
+  page: number;
+  pageSize: number;
+  search: string;
+};
+
 export type CardType = z.infer<typeof cardSchema>;
