@@ -20,15 +20,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'yarn'
+          cache: "yarn"
 
       - name: Install dependencies
-        run: |
-          cd MyNewApp
-          yarn install --immutable
+        working-directory: MyNewApp
+        run: yarn install --immutable
 
       - name: Run tests
-        run: |
-          cd MyNewApp
-          yarn test --ci --watchAll=false
-
+        working-directory: MyNewApp
+        run: yarn test --ci --watchAll=false
