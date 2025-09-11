@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   TextInput,
@@ -12,21 +11,12 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
-import { useStore } from "../services/store";
-import PaginationControls from "./PaginationControls";
-import { globalStyle } from "../styles";
+import { globalStyle, primary } from "../styles";
+import { useCards } from "../hooks/cards";
+import { CardType } from "../schemas/cards";
+import { useState, useEffect } from "react";
 
-type CardProps = {
-  name: string;
-  desc: string;
-  card_images: {
-    image_url: string;
-    image_url_cropped: string;
-    image_url_small: string;
-  }[];
-};
-
-const Card: React.FC<CardProps> = ({ name, desc, card_images }) => {
+const Card = ({ id, name, desc, card_images }: CardType) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -34,11 +24,11 @@ const Card: React.FC<CardProps> = ({ name, desc, card_images }) => {
     <TouchableOpacity
       style={styles.card}
       onPress={() =>
-        navigation.navigate("CardDetails", { name, desc, card_images })
+        navigation.navigate("CardDetails", { id, name, desc, card_images })
       }
     >
       <Image
-        source={{ uri: card_images[0]?.image_url }}
+        source={{ uri: card_images[0].image_url }}
         style={styles.image}
         resizeMode="contain"
       />
@@ -46,8 +36,20 @@ const Card: React.FC<CardProps> = ({ name, desc, card_images }) => {
   );
 };
 
-const CardList: React.FC = () => {
-  const { cards, loading, search, setSearch } = useStore();
+export const CardList = () => {
+  const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
+
+  const { cards, isLoading, hasNextPage, fetchNextPage } = useCards({
+    search: debouncedSearch,
+    page: 0,
+    pageSize: 25,
+  });
+
+  useEffect(() => {
+    const handler = setTimeout(() => setDebouncedSearch(search), 300);
+    return () => clearTimeout(handler);
+  }, [search]);
 
   return (
     <View style={styles.container}>
@@ -57,23 +59,25 @@ const CardList: React.FC = () => {
         value={search}
         onChangeText={setSearch}
       />
-      {loading ? (
-        <ActivityIndicator
-          size="large"
-          color="#007AFF"
-          style={{ marginTop: 20 }}
-        />
+      {isLoading ? (
+        <View style={styles.center}>
+          <ActivityIndicator color={primary} size={"large"} />
+        </View>
       ) : (
         <FlatList
           data={cards}
-          keyExtractor={(item, index) =>
-            item.id?.toString() || index.toString()
-          }
+          keyExtractor={(item) => item.id.toString()}
           numColumns={3}
           renderItem={({ item }) => <Card {...item} />}
+          onEndReached={() => hasNextPage && fetchNextPage()}
+          onEndReachedThreshold={0.7}
+          ListFooterComponent={
+            hasNextPage ? (
+              <ActivityIndicator style={{ margin: 16 }} color={primary} />
+            ) : null
+          }
         />
       )}
-      <PaginationControls />
     </View>
   );
 };
@@ -82,6 +86,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 8,
+    alignItems: "center",
+  },
+  center: {
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
   },
   input: {
@@ -101,5 +110,3 @@ const styles = StyleSheet.create({
     height: 180,
   },
 });
-
-export default CardList;

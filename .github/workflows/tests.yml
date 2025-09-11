@@ -1,0 +1,32 @@
+name: CI - Jest Tests
+
+on:
+  push:
+    branches:
+      - init
+  pull_request:
+    branches:
+      - init
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "yarn"
+          cache-dependency-path: MyNewApp/yarn.lock
+
+      - name: Install dependencies
+        working-directory: MyNewApp
+        run: yarn install --immutable
+
+      - name: Run tests
+        working-directory: MyNewApp
+        run: yarn test --ci --watchAll=false

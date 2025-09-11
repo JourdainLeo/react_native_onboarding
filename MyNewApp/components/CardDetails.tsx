@@ -6,7 +6,7 @@ import { globalStyle } from "../styles";
 
 type CardDetailsRouteProp = RouteProp<RootStackParamList, "CardDetails">;
 
-const CardDetails: React.FC = () => {
+export const CardDetails = () => {
   const route = useRoute<CardDetailsRouteProp>();
   const { name, desc, card_images } = route.params;
 
@@ -17,7 +17,7 @@ const CardDetails: React.FC = () => {
         <Text style={styles.desc}>{desc}</Text>
       </View>
       <Image
-        source={{ uri: card_images[0]?.image_url }}
+        source={{ uri: card_images[0].image_url }}
         style={styles.image}
         resizeMode="contain"
       />
@@ -46,5 +46,3 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 });
-
-export default CardDetails;
